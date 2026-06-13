@@ -43,7 +43,23 @@ Solution.Root/
 * **Microservices:** Ideal for large-scale systems requiring independent deployment. Leverages ASP.NET Core with Docker/Kubernetes, often using Dapr, gRPC, and MassTransit.
 * **CQRS:** Separates read and write operations. Excellent for high-performance needs and complex audit trails, allowing for specialized storage technologies per operation type.
 * **Minimal APIs:** The modern approach for lightweight, scalable APIs. It removes MVC boilerplate and pairs perfectly with Vertical Slice architecture.
-
+```text
+Solution.Root/
+├── src/
+│   ├── Solution.API/
+│   │   ├── Endpoints/            # Grouped by business feature
+│   │   │   ├── UserEndpoints.cs
+│   │   │   ├── OrderEndpoints.cs
+│   │   │   └── EndpointExtensions.cs # Centralized mapping logic
+│   │   ├── Infrastructure/       # API-specific configuration
+│   │   │   ├── ExceptionHandlers/
+│   │   │   └── Middleware/
+│   │   └── Program.cs            # Entry point (thin)
+│   ├── Solution.Application/
+│   ├── Solution.Infrastructure/
+│   └── Solution.Domain/
+└── tests/
+```
 ---
 
 ## 2. Recommendation Matrix
@@ -84,6 +100,7 @@ Solution.Root/
 ├── Solution.API/                  # Entry point coordinating across contexts
 └── tests/
 ```
+
 ---
 
 ## 4. Architectural Selection Matrix
