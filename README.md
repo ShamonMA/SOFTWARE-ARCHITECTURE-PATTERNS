@@ -182,11 +182,31 @@ Solution.Root/
 
 ## 4. Architectural Selection Matrix
 
-| Project Scenario / Constraints | Primary Challenge | Recommended Architecture | Key Trade-off / Consequence |
-| :--- | :--- | :--- | :--- |
-| **Small-scale CRUD app** | Over-engineering, boilerplate | **Minimal APIs / Monolith** | Fast development, but risks technical debt. |
-| **Enterprise / Core Domain** | Business logic coupling | **Clean Architecture** | High testability, but higher initial ceremony. |
-| **Feature-rich / Team-based** | High maintenance/merging | **Vertical Slice Architecture** | Extreme feature autonomy, but risks minor duplication. |
-| **Massive / Distributed** | Deployment bottlenecks | **Microservices with CQRS** | Independent scaling, but high operational complexity. |
+| Architecture | Primary Focus | Best For | Complexity | Scalability |
+| :--- | :--- | :--- | :--- | :--- |
+| **Microservices** | Decoupling services | Large, complex enterprise systems | High | High |
+| **Vertical Slice** | Feature-based cohesion | Rapid feature development | Low-Medium | Medium |
+| **Clean Architecture** | Domain isolation | Long-term maintainability | Medium-High | Medium |
+| **Hexagonal** | Infrastructure decoupling | Complex business logic | Medium | Medium |
+| **Minimal APIs** | Lightweight endpoints | Small services, micro-tasks | Very Low | High |
+| **CQRS** | Read/Write segregation | High-performance, complex queries | High | High |
+| **Event-Driven** | Asynchronous communication | Distributed systems, decoupling | High | High |
+| **Serverless** | Managed infrastructure | Event-triggered, variable load | Low | Very High |
+
+---
+
+## 5. Architectural Pros & Cons Matrix
+
+| Architecture | Pros | Cons |
+| :--- | :--- | :--- |
+| **Microservices** | Independent deployment, technology diversity, granular scaling. | High operational overhead, distributed transaction complexity, network latency. |
+| **Vertical Slice** | High cohesion, fast feature delivery, simple to navigate. | Potential for code duplication across slices, lacks global consistency. |
+| **Clean Architecture** | Framework/database independence, testable domain logic. | Over-engineering for simple tasks, high boilerplate code. |
+| **Hexagonal** | Highly testable, easy to swap infrastructure, clear domain boundaries. | Steep learning curve, requires careful mapping (Ports/Adapters). |
+| **Minimal APIs** | Extreme performance, minimal boilerplate, low memory footprint. | Limited structure for large applications, can become unmaintainable if bloated. |
+| **CQRS** | Optimized read/write models, scalable data access, flexible scaling. | Eventual consistency challenges, high complexity to implement and sync. |
+| **Event-Driven** | Loose coupling, high fault tolerance, asynchronous responsiveness. | Difficult to debug/trace, complex error handling, eventual consistency. |
+| **Serverless** | Zero server management, auto-scaling, pay-per-execution costs. | Vendor lock-in, cold-start latency, limited control over environment. |
+
 
 
