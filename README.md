@@ -5,7 +5,7 @@ A comprehensive guide to architectural patterns for .NET applications, ranging f
 ## 1. Core Architectural Patterns
 
 * **Clean Architecture (Onion Architecture):** The "gold standard" for enterprise applications. It relies on the Dependency Rule, where source code dependencies point only inwards, keeping the Domain independent of infrastructure.
-![Micro-Services-Architecture](Clean_Architecture.png)
+![Clean_Architecture](Clean_Architecture.png)
  
 ```text
 Solution.Root/
@@ -21,7 +21,7 @@ Solution.Root/
  
   
 * **Vertical Slice Architecture:** Organizes code by features (e.g., "AddProduct") rather than technical concerns. It offers high cohesion and reduces friction by keeping all feature-specific logic localized.
-![Micro-Services-Architecture](Vertical_Slice_Architecture.png)
+![Vertical_Slice_Architecture](Vertical_Slice_Architecture.png)
 
 ```text
 Solution.Root/
@@ -42,6 +42,7 @@ Solution.Root/
 ```
 
 * **Minimal APIs:** The modern approach for lightweight, scalable APIs. It removes MVC boilerplate and pairs perfectly with Vertical Slice architecture.
+![Minimal_APIs_Architecture](Minimal_APIs_Architecture.png)
 ```text
 Solution.Root/
 ├── src/
