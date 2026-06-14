@@ -70,7 +70,7 @@ src/
 ├── Program.cs                  # Entry point, DI container, and middleware
 └── appsettings.json
 ```
-* **Hexagonal Architecture (Ports and Adapters):** The modern approach for lightweight, scalable APIs. It removes MVC boilerplate and pairs perfectly with Vertical Slice architecture.
+* **Hexagonal Architecture (Ports and Adapters):** Similar to Clean Architecture, this focuses on isolating the application core from external frameworks and tools using interfaces (Ports) and implementations (Adapters).
 ![Hexagonal Architecture](Hexagonal_Architecture.png)
 ```text 
 MySolution.sln
