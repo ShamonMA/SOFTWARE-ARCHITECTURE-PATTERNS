@@ -112,7 +112,4 @@ Solution.Root/
 | **Feature-rich / Team-based** | High maintenance/merging | **Vertical Slice Architecture** | Extreme feature autonomy, but risks minor duplication. |
 | **Massive / Distributed** | Deployment bottlenecks | **Microservices with CQRS** | Independent scaling, but high operational complexity. |
 
----
 
-### Understanding the Architecture
-To better understand how these systems are structured, review these visual representations:
