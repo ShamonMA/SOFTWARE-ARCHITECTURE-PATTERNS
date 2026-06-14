@@ -116,6 +116,31 @@ MyProject.Api/
 ├── Domain/                                   # Entities, Value Objects
 └── Program.cs                                # MediatR and DI Registration
 ```
+* **Event-Driven Architecture (EDA):** Built around the production, detection, and consumption of events. It is ideal for systems requiring high decoupling and asynchronous responsiveness.
+![Event_Driven_Architecture](Event_Driven_Architecture.png)
+```text 
+MySolution/
+├── src/
+│   ├── MyProject.Core/
+│   │   ├── DomainEvents/           # Definitions of what happened (e.g., OrderPlaced.cs)
+│   │   └── Interfaces/             # IEventBus, IIntegrationEventPublisher
+│   │
+│   ├── MyProject.Orders.Api/       # The "Producer"
+│   │   ├── Features/
+│   │   │   └── CreateOrder/
+│   │   │       └── CreateOrderCommandHandler.cs  # Publishes an event after saving
+│   │   └── Program.cs
+│   │
+│   ├── MyProject.Inventory.Worker/ # The "Consumer" (Background Service)
+│   │   ├── IntegrationEvents/
+│   │   │   └── OrderPlacedConsumer.cs  # Listens for OrderPlaced events
+│   │   ├── Worker.cs               # HostedService/BackgroundWorker
+│   │   └── Program.cs
+│   │
+│   └── MyProject.Infrastructure/   # Message Bus implementations
+│       └── Messaging/
+│           └── MassTransitEventBus.cs
+```
   
 * **Microservices:** Ideal for large-scale systems requiring independent deployment. Leverages ASP.NET Core with Docker/Kubernetes, often using Dapr, gRPC, and MassTransit.
 ![Micro-Services-Architecture](Micro-Services-Architecture.png)
