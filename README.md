@@ -8,15 +8,24 @@ A comprehensive guide to architectural patterns for .NET applications, ranging f
 ![Clean_Architecture](Clean_Architecture.png)
  
 ```text
-Solution.Root/
-├── src/
-│   ├── Solution.Domain/          # Core Domain: Entities, Enums, Exceptions, Interfaces
-│   ├── Solution.Application/     # Business Logic: DTOs, Mappers, CQRS Handlers, Behaviors
-│   ├── Solution.Infrastructure/  # External Concerns: Persistence, Identity, External Services
-│   └── Solution.API/             # Presentation Layer: Controllers, Middlewares, Program.cs
-└── tests/
-    ├── Solution.UnitTests/       # Isolated unit tests for core logic
-    └── Solution.IntegrationTests/# Integration tests for infrastructure and API endpoints
+src/
+├── Core/                       # The innermost circle (Domain logic)
+│   ├── Domain/                 # Enterprise Business Rules (Entities, Value Objects, Enums)
+│   │   ├── Entities/
+│   │   ├── ValueObjects/
+│   │   └── Interfaces/         # Repository/Service interfaces that Domain needs
+│   └── Application/            # Application Business Rules
+│       ├── UseCases/           # Implementation of business processes
+│       ├── DTOs/               # Data Transfer Objects
+│       └── Interfaces/         # Interfaces for external dependencies (e.g., IEmailService)
+├── Infrastructure/             # Implementation of Interfaces defined in Core
+│   ├── Persistence/            # Database contexts, migrations, repositories
+│   ├── Services/               # Third-party API implementations, Email, Logging
+│   └── External/               # Cache providers, message queues
+└── Presentation/               # The outermost circle (UI)
+    ├── API/                    # Controllers, Middlewares, Filters
+    ├── Client/                 # Frontend (if monolithic)
+    └── Configuration/          # DI Registrations, App settings
 ```
  
   
