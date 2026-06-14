@@ -58,22 +58,17 @@ src/
 
 * **Minimal APIs:** The modern approach for lightweight, scalable APIs. It removes MVC boilerplate and pairs perfectly with Vertical Slice architecture.
 ![Minimal_APIs_Architecture](Minimal_APIs_Architecture.png)
-```text
-Solution.Root/
-├── src/
-│   ├── Solution.API/
-│   │   ├── Endpoints/            # Grouped by business feature
-│   │   │   ├── UserEndpoints.cs
-│   │   │   ├── OrderEndpoints.cs
-│   │   │   └── EndpointExtensions.cs # Centralized mapping logic
-│   │   ├── Infrastructure/       # API-specific configuration
-│   │   │   ├── ExceptionHandlers/
-│   │   │   └── Middleware/
-│   │   └── Program.cs            # Entry point (thin)
-│   ├── Solution.Application/
-│   ├── Solution.Infrastructure/
-│   └── Solution.Domain/
-└── tests/
+```text 
+src/
+├── Endpoints/                  # Groups of endpoints (feature-based or resource-based)
+│   ├── UserEndpoints.cs        # Maps routes and handlers for Users
+│   ├── OrderEndpoints.cs       # Maps routes and handlers for Orders
+│   └── IEndpointDefinition.cs  # Interface to standardize endpoint registration
+├── Models/                     # DTOs, Requests, and Responses
+├── Services/                   # Business logic / Orchestration
+├── Data/                       # Database Context and Repositories
+├── Program.cs                  # Entry point, DI container, and middleware
+└── appsettings.json
 ```
 * **CQRS:** Separates read and write operations. Excellent for high-performance needs and complex audit trails, allowing for specialized storage technologies per operation type.
   
