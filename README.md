@@ -5,8 +5,9 @@ A comprehensive guide to architectural patterns for .NET applications, ranging f
 ## 1. Core Architectural Patterns
 
 * **Clean Architecture (Onion Architecture):** The "gold standard" for enterprise applications. It relies on the Dependency Rule, where source code dependencies point only inwards, keeping the Domain independent of infrastructure.
+  
 ![Clean_Architecture](Clean_Architecture.png)
- 
+
 ```text
 src/
 ├── Core/                       # The innermost circle (Domain logic)
@@ -27,9 +28,10 @@ src/
     ├── Client/                 # Frontend (if monolithic)
     └── Configuration/          # DI Registrations, App settings
 ```
- 
+ ---
   
 * **Vertical Slice Architecture:** Organizes code by features (e.g., "AddProduct") rather than technical concerns. It offers high cohesion and reduces friction by keeping all feature-specific logic localized.
+  
 ![Vertical_Slice_Architecture](Vertical_Slice_Architecture.png)
 
 ```text
@@ -55,8 +57,9 @@ src/
 │   └── Logging/
 └── Program.cs                            # Entry point / DI Registration
 ```
-
+---
 * **Minimal APIs:** The modern approach for lightweight, scalable APIs. It removes MVC boilerplate and pairs perfectly with Vertical Slice architecture.
+
 ![Minimal_APIs_Architecture](Minimal_APIs_Architecture.png)
 ```text 
 src/
@@ -70,7 +73,9 @@ src/
 ├── Program.cs                  # Entry point, DI container, and middleware
 └── appsettings.json
 ```
+---
 * **Hexagonal Architecture (Ports and Adapters):** Similar to Clean Architecture, this focuses on isolating the application core from external frameworks and tools using interfaces (Ports) and implementations (Adapters).
+
 ![Hexagonal Architecture](Hexagonal_Architecture.png)
 ```text 
 MySolution.sln
@@ -95,9 +100,11 @@ MySolution.sln
     ├── MyProject.Core.Tests/       # Unit tests for Domain/Application
     └── MyProject.Infrastructure.Tests/ # Integration tests for DB/External APIs
 ```
-
+---
 * **CQRS:** Separates read and write operations. Excellent for high-performance needs and complex audit trails, allowing for specialized storage technologies per operation type.
+
 ![CQRS](CQRS_Architecture.png)
+
 ```text 
 MyProject.Api/
 ├── Features/
@@ -116,14 +123,19 @@ MyProject.Api/
 ├── Domain/                                   # Entities, Value Objects
 └── Program.cs                                # MediatR and DI Registration
 ```
+  
+---
 * **Event-Driven Architecture (EDA):** Built around the production, detection, and consumption of events. It is ideal for systems requiring high decoupling and asynchronous responsiveness.
+
 ![Event_Driven_Architecture](Event_Driven_Architecture.png)
- 
+ ---
   
 * **Microservices:** Ideal for large-scale systems requiring independent deployment. Leverages ASP.NET Core with Docker/Kubernetes, often using Dapr, gRPC, and MassTransit.
-![Micro-Services-Architecture](Micro-Services-Architecture.png)
 
+![Micro-Services-Architecture](Micro-Services-Architecture.png)
+---
 * **Serverless Architecture:** A cloud-native design where infrastructure management is offloaded to a provider, and the application logic is executed in response to events (e.g., AWS Lambda).
+
 ![Serverless_Architecture](Serverless_Architecture.png)
 ---
 
