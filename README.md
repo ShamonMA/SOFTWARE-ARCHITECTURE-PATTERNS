@@ -122,6 +122,9 @@ MyProject.Api/
   
 * **Microservices:** Ideal for large-scale systems requiring independent deployment. Leverages ASP.NET Core with Docker/Kubernetes, often using Dapr, gRPC, and MassTransit.
 ![Micro-Services-Architecture](Micro-Services-Architecture.png)
+
+* **Serverless Architecture:** A cloud-native design where infrastructure management is offloaded to a provider, and the application logic is executed in response to events (e.g., AWS Lambda).
+![Serverless_Architecture](Serverless_Architecture.png)
 ---
 
 ## 2. Recommendation Matrix
