@@ -138,19 +138,7 @@ MyProject.Api/
 
 ![Serverless_Architecture](Serverless_Architecture.png)
 ---
-
-## 2. Recommendation Matrix
-
-| Project Scale | Recommended Pattern |
-| :--- | :--- |
-| **Simple / Small** | Monolithic Layered Architecture |
-| **Enterprise / Complex** | Clean Architecture |
-| **Feature-Rich / Team** | Vertical Slice Architecture |
-| **Massive / Distributed** | Microservices with CQRS |
-
----
-
-## 3. Scaling Enterprise Applications
+## 2. Scaling Enterprise Applications
 
 Modern enterprise development often combines **Domain-Driven Design (DDD)** Bounded Contexts with **Clean Architecture**.
 
@@ -177,6 +165,18 @@ Solution.Root/
 ├── Solution.API/                  # Entry point coordinating across contexts
 └── tests/
 ```
+
+---
+
+## 3. Recommendation Matrix
+
+| Project Scale | Recommended Pattern |
+| :--- | :--- |
+| **Simple / Small** | Monolithic Layered Architecture |
+| **Enterprise / Complex** | Clean Architecture |
+| **Feature-Rich / Team** | Vertical Slice Architecture |
+| **Massive / Distributed** | Microservices with CQRS |
+
 
 ---
 
