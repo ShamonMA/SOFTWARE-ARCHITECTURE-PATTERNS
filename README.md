@@ -70,6 +70,32 @@ src/
 ├── Program.cs                  # Entry point, DI container, and middleware
 └── appsettings.json
 ```
+* **Hexagonal Architecture (Ports and Adapters):** The modern approach for lightweight, scalable APIs. It removes MVC boilerplate and pairs perfectly with Vertical Slice architecture.
+![Hexagonal Architecture](Hexagonal_Architecture.png)
+```text 
+MySolution.sln
+├── src/
+│   ├── MyProject.Core/             # Pure Business Logic (Class Library)
+│   │   ├── Domain/                 # Entities, Domain Events
+│   │   │   └── IUserRepository.cs  # Driven Port (Interface)
+│   │   └── Application/            # Use Cases, DTOs
+│   │       └── UserService.cs      # Driving Port (Orchestrates logic)
+│   │
+│   ├── MyProject.Infrastructure/   # Implementation of Driven Ports
+│   │   ├── Persistence/
+│   │   │   └── SqlUserRepository.cs # Implements IUserRepository
+│   │   └── ExternalServices/
+│   │
+│   └── MyProject.Api/              # Driving Adapter (Web API)
+│       ├── Controllers/
+│       │   └── UserController.cs   # Calls UserService
+│       └── Program.cs              # Dependency Injection Container
+│
+└── tests/
+    ├── MyProject.Core.Tests/       # Unit tests for Domain/Application
+    └── MyProject.Infrastructure.Tests/ # Integration tests for DB/External APIs
+```
+
 * **CQRS:** Separates read and write operations. Excellent for high-performance needs and complex audit trails, allowing for specialized storage technologies per operation type.
   
 * **Microservices:** Ideal for large-scale systems requiring independent deployment. Leverages ASP.NET Core with Docker/Kubernetes, often using Dapr, gRPC, and MassTransit.
