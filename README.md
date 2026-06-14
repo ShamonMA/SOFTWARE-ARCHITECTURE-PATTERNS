@@ -33,21 +33,27 @@ src/
 ![Vertical_Slice_Architecture](Vertical_Slice_Architecture.png)
 
 ```text
-Solution.Root/
-├── src/
-│   ├── Solution.API/
-│   │   ├── Features/
-│   │   │   ├── Orders/
-│   │   │   │   ├── CreateOrder/
-│   │   │   │   │   ├── CreateOrderEndpoint.cs
-│   │   │   │   │   ├── CreateOrderCommand.cs
-│   │   │   │   │   ├── CreateOrderValidator.cs
-│   │   │   │   │   └── CreateOrderHandler.cs
-│   │   │   │   └── GetOrderById/
-│   │   │   └── Products/
-│   │   ├── Common/                # Shared behaviors/base classes
-│   │   └── Program.cs
-└── tests/
+src/
+├── Features/
+│   ├── Orders/
+│   │   ├── CreateOrder/
+│   │   │   ├── CreateOrderEndpoint.cs    # The API definition (Controller/Minimal API)
+│   │   │   ├── CreateOrderCommand.cs     # The Request model
+│   │   │   ├── CreateOrderHandler.cs     # The Business Logic
+│   │   │   ├── CreateOrderValidator.cs   # Validation logic
+│   │   │   └── OrderCreatedEvent.cs      # Domain event (if needed)
+│   │   ├── GetOrderById/
+│   │   │   ├── GetOrderEndpoint.cs
+│   │   │   ├── GetOrderQuery.cs
+│   │   │   └── GetOrderHandler.cs
+│   ├── Users/
+│   │   ├── RegisterUser/
+│   │   └── LoginUser/
+├── Shared/                               # Cross-cutting concerns (common across slices)
+│   ├── Database/
+│   ├── Infrastructure/
+│   └── Logging/
+└── Program.cs                            # Entry point / DI Registration
 ```
 
 * **Minimal APIs:** The modern approach for lightweight, scalable APIs. It removes MVC boilerplate and pairs perfectly with Vertical Slice architecture.
