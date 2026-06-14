@@ -97,6 +97,25 @@ MySolution.sln
 ```
 
 * **CQRS:** Separates read and write operations. Excellent for high-performance needs and complex audit trails, allowing for specialized storage technologies per operation type.
+![CQRS](CQRS_Architecture.png)
+```text 
+MyProject.Api/
+├── Features/
+│   ├── Orders/
+│   │   ├── CreateOrder/
+│   │   │   ├── CreateOrderCommand.cs         # Request object
+│   │   │   └── CreateOrderCommandHandler.cs  # Business Logic
+│   │   ├── GetOrderById/
+│   │   │   ├── GetOrderByIdQuery.cs          # Request object
+│   │   │   └── GetOrderByIdQueryHandler.cs   # Read logic (Dapper/EF)
+│   │   └── OrdersController.cs               # Minimal API or Controller
+│   │
+│   └── Users/
+│       └── ...
+├── Infrastructure/                           # EF Core, Dapper, Email clients
+├── Domain/                                   # Entities, Value Objects
+└── Program.cs                                # MediatR and DI Registration
+```
   
 * **Microservices:** Ideal for large-scale systems requiring independent deployment. Leverages ASP.NET Core with Docker/Kubernetes, often using Dapr, gRPC, and MassTransit.
 ![Micro-Services-Architecture](Micro-Services-Architecture.png)
