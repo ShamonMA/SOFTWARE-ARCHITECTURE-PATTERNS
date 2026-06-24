@@ -29,7 +29,7 @@ src/
     └── Configuration/          # DI Registrations, App settings
 ```
 <details>
-<summary><b>Integrated .NET Clean Architecture: Team Alignment & Request Lifecycle Strategy</b></summary>
+<summary><b>Integrated .NET Clean Architecture: Team Alignment & Request Lifecycle Strategy</b> (Click to expand ▾)</summary>
 <br>
 
 ![Clean-architecture-request-flow](./Clean-architecture-request-flow.png)
