@@ -28,7 +28,17 @@ src/
     ├── Client/                 # Frontend (if monolithic)
     └── Configuration/          # DI Registrations, App settings
 ```
- ---
+<details>
+<summary><b>Integrated .NET Clean Architecture: Team Alignment & Request Lifecycle Strategy</b></summary>
+<br>
+
+![Clean-architecture-request-flow](./Clean-architecture-request-flow.png)
+
+![team-workflow-diagram](./team-workflow-diagram.png)
+
+</details>
+
+---
   
 * **Vertical Slice Architecture:** Organizes code by features (e.g., "AddProduct") rather than technical concerns. It offers high cohesion and reduces friction by keeping all feature-specific logic localized.
   
